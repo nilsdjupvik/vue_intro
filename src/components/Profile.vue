@@ -35,7 +35,7 @@ export default {
 @keyframes slide-in {
   0% {
     opacity: 0.5;
-    transform: translateX(-300px);
+    transform: translateX(-100px);
   }
   100% {
     opacity: 1;
@@ -61,8 +61,9 @@ export default {
 }
 
 .Profile img {
-  height: 100%;
+  height: 90%;
   width: auto;
+  padding: auto;
 }
 
 .Profile-details {
