@@ -1,7 +1,7 @@
 <template>
   <section class="RandomProfiles">
     <h2 style="margin-bottom: 2rem">Random profile generator</h2>
-    <button @click="addProfile">Add Profile</button>
+    <button @click="getRandomUser">Add Profile</button>
     <section class="RandomProfiles-profiles">
       <Profile
         @click="removeProfile(index)"
@@ -37,13 +37,13 @@ export default {
     };
   },
   methods: {
-    async addProfile() {
+    async getRandomUser() {
       const randomUser = await axios.get(randomUserApi);
       this.users.push(randomUser.data.results[0]);
     },
     removeProfile(index) {
       console.log("remove profile: ", index);
-      this.users = this.users.splice(index + 1, 1);
+      this.users.splice(index, 1);
     }
   },
   computed: {

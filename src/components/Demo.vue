@@ -1,21 +1,57 @@
 <template>
   <section class="Demo">
-    <button>Add Profile</button>
-    <section class="Demo-profiles"></section>
+    <button @click="getUser">Add Profile</button>
+    <section class="Demo-profiles">
+      <Profile
+        v-for="(profile, index) in profiles"
+        :key="index"
+        :imageUrl="profile.imageUrl"
+        :name="profile.name"
+        :points="profile.points"
+        :title="profile.title"
+      />
+    </section>
   </section>
 </template>
 
 <script>
+import axios from "axios";
+import Profile from "./Profile";
+
 const randomUserApi = "https://randomuser.me/api/";
-const countryApi = `https://www.countryflags.io/`;
 
 export default {
-  components: {},
-  data() {
-    return {};
+  components: {
+    Profile
   },
-  methods: {},
-  computed: {}
+  data() {
+    return {
+      users: []
+    };
+  },
+  methods: {
+    async getUser() {
+      const response = await axios.get(randomUserApi);
+      this.users.push(response.data.results[0]);
+    }
+  },
+  computed: {
+    profiles() {
+      return this.users.map(
+        ({
+          name: { first, last },
+          picture,
+          email,
+          location: { street, city, state }
+        }) => ({
+          name: `${first} ${last}`,
+          title: email,
+          imageUrl: picture.large,
+          points: [street, city, state]
+        })
+      );
+    }
+  }
 };
 </script>
 

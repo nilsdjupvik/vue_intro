@@ -32,15 +32,32 @@ export default {
 </script>
 
 <style>
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .Profile {
   display: flex;
   flex-basis: auto;
   flex-grow: 0;
   font-family: "IBM Plex Sans";
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: width 2s, height 2s, background-color 2s, transform 2s;
+  animation: slide-up 0.8s ease;
   margin: 2rem;
   padding: 0.5rem;
   min-width: 500px;
+  cursor: pointer;
+}
+
+.Profile:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .Profile img {

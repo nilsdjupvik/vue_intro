@@ -55,12 +55,13 @@
 </template>
 
 <script>
-import { Slideshow } from "eagle.js";
+import { Slideshow, slide } from "eagle.js";
 import Profile from "./Profile";
 export default {
   mixins: [Slideshow],
   components: {
-    Profile
+    Profile,
+    slide
   },
   data() {
     return {
@@ -70,9 +71,9 @@ export default {
         name: "Nils Magnus Djupvik",
         title: "Seniorutvikler",
         points: [
-          "Full stack",
-          "Fokus på frontend utvikling",
-          "Snart 10 år i Stacc Insight / Delfi Data"
+          "Snart 10 år i Stacc Insight / Delfi Data",
+          "Full stack utvikler",
+          "Stor interesse for Frontend utvikling"
         ]
       }
     };

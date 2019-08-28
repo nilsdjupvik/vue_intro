@@ -9,7 +9,6 @@ import "animate.css";
 
 Vue.use(Eagle);
 Vue.use(VueRouter);
-
 Vue.config.productionTip = false;
 
 new Vue({
