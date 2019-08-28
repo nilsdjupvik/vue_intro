@@ -55,13 +55,12 @@
 </template>
 
 <script>
-import { Slideshow, slide } from "eagle.js";
+import { Slideshow } from "eagle.js";
 import Profile from "./Profile";
 export default {
   mixins: [Slideshow],
   components: {
-    Profile,
-    slide
+    Profile
   },
   data() {
     return {

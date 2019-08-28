@@ -32,10 +32,10 @@ export default {
 </script>
 
 <style>
-@keyframes slide-up {
+@keyframes slide-in {
   0% {
-    opacity: 0;
-    transform: translateX(-100px);
+    opacity: 0.5;
+    transform: translateX(-300px);
   }
   100% {
     opacity: 1;
@@ -48,11 +48,10 @@ export default {
   flex-grow: 0;
   font-family: "IBM Plex Sans";
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: width 2s, height 2s, background-color 2s, transform 2s;
-  animation: slide-up 0.8s ease;
+  animation: slide-in 0.8s ease-out;
   margin: 2rem;
   padding: 0.5rem;
-  min-width: 500px;
+  min-width: 300px;
   cursor: pointer;
 }
 

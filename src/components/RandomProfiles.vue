@@ -6,7 +6,7 @@
       <Profile
         @click="removeProfile(index)"
         v-for="(profile, index) in profiles"
-        :key="profile.name"
+        :key="index"
         :name="profile.name"
         :imageUrl="profile.imageUrl"
         :title="profile.title"

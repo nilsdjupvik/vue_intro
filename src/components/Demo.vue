@@ -1,40 +1,21 @@
 <template>
   <section class="Demo">
-    <button @click="getUser">Add Profile</button>
-    <section class="Demo-profiles">
-      <Profile
-        v-for="(profile, index) in profiles"
-        :key="index"
-        :imageUrl="profile.imageUrl"
-        :name="profile.name"
-        :points="profile.points"
-        :title="profile.title"
-      />
-    </section>
+    <button>Add Profile</button>
+    <section class="Demo-profiles"></section>
   </section>
 </template>
 
 <script>
-import axios from "axios";
-import Profile from "./Profile";
-
 const randomUserApi = "https://randomuser.me/api/";
 
 export default {
-  components: {
-    Profile
-  },
+  components: {},
   data() {
     return {
       users: []
     };
   },
-  methods: {
-    async getUser() {
-      const response = await axios.get(randomUserApi);
-      this.users.push(response.data.results[0]);
-    }
-  },
+  methods: {},
   computed: {
     profiles() {
       return this.users.map(
