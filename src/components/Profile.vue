@@ -1,5 +1,5 @@
 <template>
-  <section class="Profile">
+  <section class="Profile" @click="$emit('click',$event)">
     <img :src="imageUrl">
     <aside class="Profile-details">
       <p class="Profile-name">{{ name }}</p>
@@ -7,6 +7,7 @@
       <ul class="Profile-points">
         <li v-for="point in points" :key="point">{{ point }}</li>
       </ul>
+      <slot></slot>
     </aside>
   </section>
 </template>
@@ -39,7 +40,12 @@ export default {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
   margin: 2rem;
   padding: 0.5rem;
-  min-width: 700px;
+  min-width: 500px;
+}
+
+.Profile img {
+  height: 100%;
+  width: auto;
 }
 
 .Profile-details {

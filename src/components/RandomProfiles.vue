@@ -1,15 +1,19 @@
 <template>
   <section class="RandomProfiles">
+    <h2 style="margin-bottom: 2rem">Random profile generator</h2>
     <button @click="addProfile">Add Profile</button>
     <section class="RandomProfiles-profiles">
       <Profile
-        v-for="profile in profiles"
+        @click="removeProfile(index)"
+        v-for="(profile, index) in profiles"
         :key="profile.name"
         :name="profile.name"
         :imageUrl="profile.imageUrl"
         :title="profile.title"
         :points="profile.points"
-      />
+      >
+        <Flag :landcode="profile.nat"/>
+      </Profile>
     </section>
   </section>
 </template>
@@ -17,9 +21,15 @@
 <script>
 import axios from "axios";
 import Profile from "./Profile";
+import Flag from "./Flag";
+import capitalize from "capitalize";
+
+const randomUserApi = "https://randomuser.me/api/";
+
 export default {
   components: {
-    Profile
+    Profile,
+    Flag
   },
   data() {
     return {
@@ -28,8 +38,12 @@ export default {
   },
   methods: {
     async addProfile() {
-      const randomUser = await axios.get("https://randomuser.me/api/");
+      const randomUser = await axios.get(randomUserApi);
       this.users.push(randomUser.data.results[0]);
+    },
+    removeProfile(index) {
+      console.log("remove profile: ", index);
+      this.users = this.users.splice(index + 1, 1);
     }
   },
   computed: {
@@ -39,12 +53,14 @@ export default {
           name: { first, last },
           picture,
           email,
-          location: { street, city, state }
+          location: { street, city, state },
+          nat
         }) => {
           return {
-            name: `${first} ${last}`,
+            name: `${capitalize(first)} ${capitalize(last)}`,
             title: email,
             imageUrl: picture.large,
+            nat,
             points: [street, city, state]
           };
         }
@@ -58,6 +74,7 @@ export default {
 .RandomProfiles {
   margin: auto;
 }
+
 .RandomProfiles-profiles {
   display: flex;
   flex-wrap: wrap;

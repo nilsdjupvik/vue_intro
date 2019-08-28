@@ -9,7 +9,7 @@
       </section>
     </slide>
 
-    <slide>
+    <slide style="display: flex">
       <Profile
         :imageUrl="profile.imageUrl"
         v-bind:name="profile.name"
@@ -19,7 +19,7 @@
     </slide>
 
     <slide>
-      <h2>AngularJS -> Vue.js</h2>
+      <img src="../assets/angular_vs_vue.png" width="60%">
     </slide>
 
     <slide>
@@ -29,7 +29,7 @@
         <div>- Tidvis tregt (mange watchers)</div>
         <div>- Veldig mykje rammeverkkode</div>
         <div>- Vanskelig å feilsøke</div>
-        <div>- Angular 2+ er eit heilt anna rammeverk</div>
+        <div>- Angular er eit heilt anna rammeverk enn AngularJS</div>
       </section>
     </slide>
     <slide>
@@ -42,9 +42,6 @@
         <div>- Det gode frå AngularJS (templatesyntax, plain html og css)</div>
         <div>- Vue Developer Tools er genialt</div>
       </section>
-    </slide>
-    <slide>
-      <RandomProfiles/>
     </slide>
     <slide class="flexImage">
       <h4>Vue Reactivity Model</h4>
@@ -60,12 +57,10 @@
 <script>
 import { Slideshow } from "eagle.js";
 import Profile from "./Profile";
-import RandomProfiles from "./RandomProfiles";
 export default {
   mixins: [Slideshow],
   components: {
-    Profile,
-    RandomProfiles
+    Profile
   },
   data() {
     return {

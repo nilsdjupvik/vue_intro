@@ -1,19 +1,17 @@
 <template>
   <div id="app">
     <Header/>
-    <Slides/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
 import Slides from "./components/Slides";
 import Header from "./components/Header";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
     Slides,
     Header
   }
