@@ -31,10 +31,10 @@ export default {
   margin: 0;
   padding: 0;
 }
-.slider {
+.slides {
   display: flex;
 }
-.slider .slide img {
+.slides .slide img {
   width: 100%;
 }
 </style>

@@ -52,6 +52,7 @@ export default {
   margin: 2rem;
   padding: 0.5rem;
   min-width: 300px;
+  max-width: 600px;
   cursor: pointer;
 }
 

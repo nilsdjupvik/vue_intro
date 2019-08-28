@@ -2,20 +2,36 @@
   <section class="eg-slideshow">
     <slide class="firstSlide">
       <h4>Stacc Insight</h4>
-      <section class="points">
-        <div>- 36 ansatte</div>
-        <div>- Opprinnelig Delfi Data (Stifta i 1981)</div>
-        <div>- Stacc AS blei majoritetseigar i 2017</div>
+      <section class="points" style="flex-direction: row">
+        <div>
+          <div>- Opprinnelig Delfi Data (Stifta i 1981)</div>
+          <div>- Leverer primært rådgivningsløysingar for bankar</div>
+          <div>- ~36 ansatte</div>
+          <div>- Stacc AS blei majoritetseigar i 2017</div>
+          <div>- Skifta navn til Stacc Insight i 2018</div>
+        </div>
+        <img src="https://pbs.twimg.com/media/Dq5_6R2WoAAxMUR?format=jpg&name=medium">
       </section>
     </slide>
 
-    <slide style="display: flex">
-      <Profile
-        :imageUrl="profile.imageUrl"
-        v-bind:name="profile.name"
-        v-bind:title="profile.title"
-        v-bind:points="profile.points"
-      />
+    <slide style="width: 100%" :steps="3">
+      <h2 v-if="step >= 1" style="flex-grow: 1">Kven er vi?</h2>
+      <section style="display: flex">
+        <Profile
+          v-if="step >= 2"
+          :imageUrl="profiles[0].imageUrl"
+          :name="profiles[0].name"
+          :title="profiles[0].title"
+          :points="profiles[0].points"
+        ></Profile>
+        <Profile
+          v-if="step >= 3"
+          :imageUrl="profiles[1].imageUrl"
+          :name="profiles[1].name"
+          :title="profiles[1].title"
+          :points="profiles[1].points"
+        ></Profile>
+      </section>
     </slide>
 
     <slide>
@@ -64,17 +80,29 @@ export default {
   },
   data() {
     return {
-      profile: {
-        imageUrl:
-          "https://cdn.sanity.io/images/8j24leyc/production/fe3de87d39a07329f21dcdf5547cf029dadc35fd-220x220.jpg?w=200",
-        name: "Nils Magnus Djupvik",
-        title: "Seniorutvikler",
-        points: [
-          "Snart 10 år i Stacc Insight / Delfi Data",
-          "Full stack utvikler",
-          "Stor interesse for Frontend utvikling"
-        ]
-      }
+      profiles: [
+        {
+          imageUrl:
+            "https://cdn.sanity.io/images/8j24leyc/production/fe3de87d39a07329f21dcdf5547cf029dadc35fd-220x220.jpg?w=200",
+          name: "Nils Magnus Djupvik",
+          title: "Seniorutvikler",
+          points: [
+            "Snart 10 år i Stacc Insight / Delfi Data",
+            "Full stack utvikler",
+            "Stor interesse for Frontend utvikling"
+          ]
+        },
+        {
+          imageUrl:
+            "https://cdn.sanity.io/images/8j24leyc/production/e3337d0194e988b4f5471ba4ba679f0cc43816c4-220x220.jpg?w=200",
+          name: "Vidar Vabø",
+          title: "Testleder",
+          points: [
+            "Snart 6 år i Stacc Insight / Delfi Data",
+            "Tester / Teknisk tester / QA"
+          ]
+        }
+      ]
     };
   }
 };
@@ -87,7 +115,16 @@ export default {
 
 section.points {
   margin-top: 2rem;
+  margin-right: 2rem;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+section.points img {
+  height: 400px;
+  width: auto;
+  padding-left: 3rem;
 }
 
 p {
