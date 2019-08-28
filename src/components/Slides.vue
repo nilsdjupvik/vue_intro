@@ -1,6 +1,6 @@
 <template>
   <section class="eg-slideshow">
-    <slide class="firstSlide">
+    <slide class="firstSlide" enter="slideInRight" leave="slideOutLeft">
       <h4>Stacc Insight</h4>
       <section class="points" style="flex-direction: row">
         <div>
@@ -14,7 +14,7 @@
       </section>
     </slide>
 
-    <slide style="width: 100%" :steps="3">
+    <slide style="width: 100%" :steps="3" enter="slideInRight" leave="slideOutLeft">
       <h2 v-if="step >= 1" style="flex-grow: 1">Kven er vi?</h2>
       <section style="display: flex">
         <Profile
@@ -34,11 +34,11 @@
       </section>
     </slide>
 
-    <slide>
+    <slide enter="rotateIn" leave="slideOutLeft">
       <img src="../assets/angular_vs_vue.png" width="60%">
     </slide>
 
-    <slide>
+    <slide enter="slideInRight" leave="slideOutLeft">
       <h4>Utfordringar med AngularJS</h4>
       <section class="points">
         <div>- AngularJS support/videreutvikling</div>
@@ -48,7 +48,7 @@
         <div>- Angular er eit heilt anna rammeverk enn AngularJS</div>
       </section>
     </slide>
-    <slide>
+    <slide enter="slideInRight" leave="slideOutLeft">
       <h4>Kvifor Vue.js (og ikkje Angular / React)</h4>
       <section class="points">
         <div>- Lite "opinionated"</div>
@@ -59,11 +59,11 @@
         <div>- Vue Developer Tools er genialt</div>
       </section>
     </slide>
-    <slide class="flexImage">
+    <slide class="flexImage" enter="rotateIn" leave="slideOutLeft">
       <h4>Vue Reactivity Model</h4>
       <img src="https://vuejs.org/images/data.png">
     </slide>
-    <slide class="flexImage">
+    <slide class="flexImage" enter="rotateIn" leave="slideOutLeft">
       <h4>Vue Lifecycle</h4>
       <img src="https://vuejs.org/images/lifecycle.png">
     </slide>
