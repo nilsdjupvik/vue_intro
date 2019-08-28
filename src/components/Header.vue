@@ -15,6 +15,7 @@ export default {};
   height: 5rem;
   justify-content: space-between;
   padding: 0 5rem;
+  margin-bottom: 2rem;
 }
 
 .Header img {

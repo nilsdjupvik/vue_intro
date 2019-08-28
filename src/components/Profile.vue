@@ -33,7 +33,13 @@ export default {
 <style>
 .Profile {
   display: flex;
+  flex-basis: auto;
+  flex-grow: 0;
   font-family: "IBM Plex Sans";
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  margin: 2rem;
+  padding: 0.5rem;
+  min-width: 700px;
 }
 
 .Profile-details {
