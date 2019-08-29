@@ -1,6 +1,10 @@
 <template>
   <div id="app">
     <Header/>
+    <div class="links" v-if="$route.path !== '/slides'">
+      <router-link to="/slides">Slides</router-link>
+      <router-link to="/complete">Fasit</router-link>
+    </div>
     <router-view/>
   </div>
 </template>
@@ -36,5 +40,17 @@ export default {
 }
 .slides .slide img {
   width: 100%;
+}
+.links {
+  margin-left: auto;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  width: 100px;
+}
+.links * {
+  display: block;
+  text-decoration: none;
 }
 </style>

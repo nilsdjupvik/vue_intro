@@ -1,6 +1,6 @@
 <template>
   <section class="eg-slideshow">
-    <slide class="firstSlide" enter="slideInRight" leave="slideOutLeft">
+    <slide class="Slide" enter="slideInRight" leave="slideOutLeft">
       <h4>Stacc Insight</h4>
       <section class="points" style="flex-direction: row">
         <div>
@@ -14,8 +14,8 @@
       </section>
     </slide>
 
-    <slide style="width: 100%" :steps="3" enter="slideInRight" leave="slideOutLeft">
-      <h2 v-if="step >= 1" style="flex-grow: 1">Kven er vi?</h2>
+    <slide class="Slide" style="width: 100%" :steps="3" enter="slideInRight" leave="slideOutLeft">
+      <h4 v-if="step >= 1" style="flex-grow: 1">Kven er vi?</h4>
       <section style="display: flex">
         <Profile
           v-if="step >= 2"
@@ -34,24 +34,37 @@
       </section>
     </slide>
 
-    <slide enter="rotateIn" leave="slideOutLeft">
+    <slide class="Slide" style="width: 100%" :steps="3" enter="slideInRight" leave="slideOutLeft">
+      <h4>Agenda</h4>
+      <section class="points">
+        <div>- Angular -> Vue</div>
+        <div>- Kvifor valgte vi Vue.js?</div>
+        <div>- Vue Reactivity Model</div>
+        <div>- Demo: Vi lager ein komponent</div>
+        <div>- Demo: Våre applikasjoner</div>
+        <div>- Vidar: API-testing i autonome team</div>
+      </section>
+    </slide>
+
+    <slide class="Slide" enter="rotateIn" leave="slideOutLeft">
       <img src="../assets/angular_vs_vue.png" width="60%">
     </slide>
 
-    <slide enter="slideInRight" leave="slideOutLeft">
-      <h4>Utfordringar med AngularJS</h4>
+    <slide class="Slide" enter="slideInRight" leave="slideOutLeft">
+      <h4>Erfaringer med AngularJS</h4>
       <section class="points">
-        <div>- AngularJS support/videreutvikling</div>
         <div>- Tidvis tregt (mange watchers)</div>
         <div>- Veldig mykje rammeverkkode</div>
         <div>- Vanskelig å feilsøke</div>
+        <div>- AngularJS support/videreutvikling</div>
         <div>- Angular er eit heilt anna rammeverk enn AngularJS</div>
       </section>
     </slide>
-    <slide enter="slideInRight" leave="slideOutLeft">
+    <slide class="Slide" enter="slideInRight" leave="slideOutLeft">
       <h4>Kvifor Vue.js (og ikkje Angular / React)</h4>
       <section class="points">
         <div>- Lite "opinionated"</div>
+        <div>- Progressivt</div>
         <div>- Lettare overgang frå AngularJS</div>
         <div>- Raskt og lite</div>
         <div>- Det gode frå React (raskt, vdom, komponentbasert etc)</div>
@@ -59,11 +72,11 @@
         <div>- Vue Developer Tools er genialt</div>
       </section>
     </slide>
-    <slide class="flexImage" enter="rotateIn" leave="slideOutLeft">
+    <slide class="Slide" enter="rotateIn" leave="slideOutLeft">
       <h4>Vue Reactivity Model</h4>
       <img src="https://vuejs.org/images/data.png">
     </slide>
-    <slide class="flexImage" enter="rotateIn" leave="slideOutLeft">
+    <slide class="Slide" enter="rotateIn" leave="slideOutLeft">
       <h4>Vue Lifecycle</h4>
       <img src="https://vuejs.org/images/lifecycle.png">
     </slide>
@@ -98,7 +111,7 @@ export default {
           name: "Vidar Vabø",
           title: "Testleder",
           points: [
-            "Snart 6 år i Stacc Insight / Delfi Data",
+            "6 år i Stacc Insight / Delfi Data",
             "Tester / Teknisk tester / QA"
           ]
         }
@@ -113,9 +126,20 @@ export default {
   margin-bottom: 2rem;
 }
 
+.Slide {
+  display: flex;
+  justify-content: center;
+}
+
+.Slide img {
+  display: flex;
+  margin: auto;
+  max-height: 90%;
+  max-width: 90%;
+}
+
 section.points {
-  margin-top: 2rem;
-  margin-right: 2rem;
+  margin: 2rem auto;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -134,19 +158,5 @@ p {
 }
 p .point {
   text-align: left;
-}
-.flexImage {
-  display: flex;
-}
-.flexImage img {
-  display: flex;
-  margin: auto;
-  max-height: 90%;
-  max-width: 90%;
-}
-
-.firstSlide {
-  display: flex;
-  flex-direction: column;
 }
 </style>

@@ -11,9 +11,7 @@ const randomUserApi = "https://randomuser.me/api/";
 export default {
   components: {},
   data() {
-    return {
-      users: []
-    };
+    return {};
   },
   methods: {},
   computed: {
