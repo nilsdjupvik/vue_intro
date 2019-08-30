@@ -1,6 +1,8 @@
 <template>
   <section class="Profile" @click="$emit('click',$event)">
-    <img :src="imageUrl">
+    <slot name="image">
+      <img :src="imageUrl">
+    </slot>
     <aside class="Profile-details">
       <p class="Profile-name">{{ name }}</p>
       <p class="Profile-title">{{ titleUppercase }}</p>

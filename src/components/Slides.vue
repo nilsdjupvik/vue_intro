@@ -6,7 +6,7 @@
         <div>
           <div>- Opprinnelig Delfi Data (Stifta i 1981)</div>
           <div>- Leverer primært rådgivningsløysingar for bankar</div>
-          <div>- ~36 ansatte</div>
+          <div>- 35 ansatte</div>
           <div>- Stacc AS blei majoritetseigar i 2017</div>
           <div>- Skifta navn til Stacc Insight i 2018</div>
         </div>
@@ -34,7 +34,7 @@
       </section>
     </slide>
 
-    <slide class="Slide" style="width: 100%" :steps="3" enter="slideInRight" leave="slideOutLeft">
+    <slide class="Slide" style="width: 100%" enter="slideInRight" leave="slideOutLeft">
       <h4>Agenda</h4>
       <section class="points">
         <div>- Angular -> Vue</div>

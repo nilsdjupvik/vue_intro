@@ -1,19 +1,44 @@
 <template>
   <section class="Demo">
-    <button>Add Profile</button>
-    <section class="Demo-profiles"></section>
+    <button @click="getUser">Add Profile</button>
+    <section class="Demo-profiles">
+      <Profile
+        v-for="profile in profiles"
+        :key="profile.name"
+        :imageUrl="profile.imageUrl"
+        :name="profile.name"
+        :title="profile.title"
+        :points="profile.points"
+      >
+        <Flag :landcode="profile.landcode"/>
+      </Profile>
+    </section>
   </section>
 </template>
 
 <script>
 const randomUserApi = "https://randomuser.me/api/";
+import axios from "axios";
+import Profile from "./Profile";
+import Flag from "./Flag";
+import capitalize from "capitalize";
 
 export default {
-  components: {},
-  data() {
-    return {};
+  components: {
+    Profile,
+    Flag
   },
-  methods: {},
+  data() {
+    return {
+      users: []
+    };
+  },
+  methods: {
+    async getUser() {
+      const response = await axios.get(randomUserApi);
+      this.users.push(response.data.results[0]);
+    }
+  },
   computed: {
     profiles() {
       return this.users.map(
@@ -21,12 +46,14 @@ export default {
           name: { first, last },
           picture,
           email,
-          location: { street, city, state }
+          location: { street, city, state },
+          nat
         }) => ({
-          name: `${first} ${last}`,
+          name: `${capitalize(first)} ${capitalize(last)}`,
           title: email,
           imageUrl: picture.large,
-          points: [street, city, state]
+          points: [street, city, state],
+          landcode: nat
         })
       );
     }
